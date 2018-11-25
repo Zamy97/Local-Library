@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Import the mongoose module
 var mongoose = require('mongoose');
 
+
 // Set up the default mongoose connection
 var mongoDB = 'mongodb://127.0.0.1/my_database';
 mongoose.Promise = global.Promise;
