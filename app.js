@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index.js');
 const usersRouter = require('./routes/users.js');
 
+// Create the Express application object
 var app = express();
 
 // view engine setup
@@ -25,6 +26,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Import the mongoose module
+var mongoose = require('mongoose');
+
+// Set up the default mongoose connection
+var mongoDB = 'mongodb://127.0.0.1/my_database';
+mongoose.Promise = global.Promise;
+
+// Get the default connection
+var db = mongoose.connection;
+
+// Bind connection to error event(to get notification of connection errors)
+
+
 
 
 // Route Handling code to he request handling chain
