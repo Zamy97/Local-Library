@@ -13,14 +13,14 @@ var AuthorSchema = new Schema(
 
 // Virtual for Author's full name
 AuthorSchema
-.Virtual('lifespan')
+.virtual('lifespan')
 .get(function () {
     return (this.date_of_birth.getYear() - this.date_of_death.getYear()).toString();
 });
 
 // Virtual for Author's URL
 AuthorSchema
-.Virtual('url')
+.virtual('url')
 .get(function () {
     return '/catalog/author' + this._id;
 });

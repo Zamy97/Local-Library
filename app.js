@@ -16,7 +16,7 @@ var app = express();
 var mongoose = require('mongoose');
 
 // Set up the default mongoose connection
-var mongoDB = 'mongodb://<dbuser>:<dbpassword>@ds115244.mlab.com:15244/local_library_project';
+var mongoDB = 'mongodb://user1:password1@ds017175.mlab.com:17175/local_library_project';
 
 // Connect to mongodb
 mongoose.connect(mongoDB);
