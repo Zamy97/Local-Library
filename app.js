@@ -12,6 +12,24 @@ const usersRouter = require('./routes/users.js');
 // Create the Express application object
 var app = express();
 
+// Import the mongoose module
+var mongoose = require('mongoose');
+
+// Set up the default mongoose connection
+var mongoDB = 'mongodb://<dbuser>:<dbpassword>@ds115244.mlab.com:15244/local_library_project';
+
+// Connect to mongodb
+mongoose.connect(mongoDB);
+
+// Don't know what this line is doing
+mongoose.Promise = global.Promise;
+
+// Get the default connection
+var db = mongoose.connection;
+
+// Bind connection to error event(to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -26,21 +44,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Import the mongoose module
-var mongoose = require('mongoose');
-
-
-// Set up the default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/my_database';
-mongoose.Promise = global.Promise;
-
-// Get the default connection
-var db = mongoose.connection;
-
-// Bind connection to error event(to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error'));
-
 
 
 // Route Handling code to he request handling chain
