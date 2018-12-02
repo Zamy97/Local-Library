@@ -8,12 +8,13 @@ const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index.js');
 const usersRouter = require('./routes/users.js');
+const catalogRouter = require('./routes/catalog.js');
 
 // Create the Express application object
 var app = express();
 
 // Import the mongoose module
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Set up the default mongoose connection
 var mongoDB = 'mongodb://user1:password1@ds017175.mlab.com:17175/local_library_project';
@@ -49,6 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Route Handling code to he request handling chain
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/catalog', catalogRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
