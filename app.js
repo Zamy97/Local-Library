@@ -20,7 +20,7 @@ const mongoose = require('mongoose');
 var mongoDB = 'mongodb://user1:password1@ds017175.mlab.com:17175/local_library_project';
 
 // Connect to mongodb
-mongoose.connect(mongoDB);
+mongoose.connect(mongoDB, { useNewUrlParser: true } );
 
 // Don't know what this line is doing
 mongoose.Promise = global.Promise;
