@@ -71,3 +71,7 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// Convert Pug syntax to handlebars
+    //https://pughtml.com/
+    
