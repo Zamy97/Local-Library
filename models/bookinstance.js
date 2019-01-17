@@ -1,8 +1,9 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const moment = require('moment');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var BookInstanceSchema = new Schema(
+const BookInstanceSchema = new Schema(
     {
         book: { type: Schema.Types.ObjectId, ref: 'Book', required: true }, // reference to the associated book
         imprint: { type: String, required: true },
@@ -15,6 +16,7 @@ var BookInstanceSchema = new Schema(
 BookInstanceSchema
 .virtual('url')
 .get(function () {
+    return moment(this.due_back).format('MMMM Do, YYYY')
     return '/catalog/bookinstance' + this._id;
 });
 
