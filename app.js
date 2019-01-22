@@ -74,3 +74,4 @@ module.exports = app;
 
 // Convert Pug syntax to handlebars
     //https://pughtml.com/
+    // http://localhost:3000/catalog/bookinstances
