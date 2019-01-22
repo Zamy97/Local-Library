@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users.js');
 const catalogRouter = require('./routes/catalog.js');
 
 // Create the Express application object
-var app = express();
+const app = express();
 
 // Import the mongoose module
 const mongoose = require('mongoose');
